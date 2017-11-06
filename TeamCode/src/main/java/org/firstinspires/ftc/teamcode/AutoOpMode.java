@@ -210,6 +210,11 @@ public abstract class AutoOpMode extends LinearOpMode {
         return "broken";
     }
 
+    public int getStrafeEncoders() {
+        Math.abs(0);
+        return 0;
+    }
+
     public String chooseColor(char c) throws InterruptedException {
         //hitting blue
         if(c == 114) {
