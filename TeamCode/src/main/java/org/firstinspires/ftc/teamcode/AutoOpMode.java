@@ -210,9 +210,25 @@ public abstract class AutoOpMode extends LinearOpMode {
         return "broken";
     }
 
-    public int getStrafeEncoders() {
-        Math.abs(0);
-        return 0;
+    public double getStrafeEncoders() {
+        int backLeftEncoderValue    = BL.getCurrentPosition();
+        int backRightEncoderValue   = BR.getCurrentPosition();
+        int frontRightEncoderValue  = FR.getCurrentPosition();
+        int frontLeftEncoderValue   = FL.getCurrentPosition();
+
+        double avgDiagPosition1 = (Math.abs(backLeftEncoderValue) + Math.abs(frontRightEncoderValue)) / 2.0;
+        double avgDiagPosition2 = (Math.abs(backRightEncoderValue) + Math.abs(frontLeftEncoderValue)) / 2.0;
+
+
+        return (avgDiagPosition1 + avgDiagPosition2) / 2.0;
+    }
+
+    public void strafeLeft (int distanceInInches) {
+        throw new UnsupportedOperationException("Not Working yet :/");
+    }
+
+    public void strafeRight (int distanceInInches) {
+        throw new UnsupportedOperationException("Not Working yet :/");
     }
 
     public String chooseColor(char c) throws InterruptedException {
